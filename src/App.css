@@ -29,6 +29,10 @@
   height: fit-content;
 }
 
+.logged-in {
+  padding: 1rem;
+}
+
 .TopicLinks {
   display: inline;
 }
@@ -219,11 +223,21 @@ most-recent h2 {
   border: 2.5px solid #455e49;
 }
 
+.singleArticle:hover {
+  background-color: #122230;
+  transition-duration: 0.5s;
+}
+
 .sort-params h3 {
   font-size: 14px;
   display: inline;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
+  height: fit-content;
+}
+
+.sort-params form {
+  display: inline-flex;
 }
 
 .ArticleList {
@@ -245,7 +259,7 @@ a {
 
 .article__votes {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   align-self: center;
   width: fit-content;
 }
@@ -261,6 +275,8 @@ a {
 
 .loading {
   text-align: center;
+  padding: 1rem;
+  justify-content: center;
 }
 
 .loading-wrapper {
