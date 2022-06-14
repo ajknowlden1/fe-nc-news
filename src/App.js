@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Header from "./components/Header";
+import ArticleList from "./components/ArticleList";
+import SingleArticle from "./components/SingleArticle";
+import Home from "./components/Home";
+import Coding from "./components/Coding";
+import Football from "./components/Football";
+import Cooking from "./components/Cooking";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <div className="sideNav">
+          <Header />
+
+          <NavBar />
+        </div>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/articles" element={<ArticleList />} />
+          <Route
+            path="/articles/:article_id"
+            element={<SingleArticle />}
+          ></Route>
+          <Route path="/topics/coding" element={<Coding />}></Route>
+          <Route path="/topics/football" element={<Football />}></Route>
+          <Route path="/topics/cooking" element={<Cooking />}></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
