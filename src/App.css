@@ -161,11 +161,13 @@ most-recent h2 {
 }
 
 .article__created {
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 .article__body {
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 .article__title-underline {
   margin-bottom: 0.5rem;
@@ -174,19 +176,25 @@ most-recent h2 {
 }
 
 .article-info {
-  display: inline;
-  height: 1rem;
-  margin: 0.5rem;
+  display: flex;
+  width: 75%;
+
+  margin-right: auto;
+  margin-left: auto;
   padding: 0.5rem;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .article__topic-underline {
   text-align: center;
   text-transform: capitalize;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 .article__author-centre {
   text-align: center;
+  justify-content: center;
 }
 .sort-params {
   font-size: 14px;
@@ -197,6 +205,18 @@ most-recent h2 {
   margin-top: 1rem;
   align-items: baseline;
   padding: 0.5rem;
+}
+
+.single-article__header {
+  display: block;
+  background-color: #0c1620d2;
+  padding: 1.5rem;
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1rem;
+
+  border: 2.5px solid #455e49;
 }
 
 .sort-params h3 {
@@ -225,12 +245,9 @@ a {
 
 .article__votes {
   align-items: center;
-  display: inline-block;
+  display: flex;
   align-self: center;
-  width: 40%;
-  height: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  width: fit-content;
 }
 
 .article__votes p {
@@ -281,6 +298,11 @@ a {
 .loading-msg {
   text-align: center;
 }
+
+#article__body--0 {
+  font-size: 1.5rem;
+}
+
 /* @media screen and (min-width: 600px) {
   * {
     font-family: "Roboto";
