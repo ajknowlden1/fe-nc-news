@@ -9,26 +9,28 @@ import Football from "./components/Football";
 import Cooking from "./components/Cooking";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
-        <div className="app-display">
+        <div className="sideNav">
+          <Header />
+
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/articles" element={<ArticleList />} />
-            <Route
-              path="/articles/:article_id"
-              element={<SingleArticle />}
-            ></Route>
-            <Route path="/topics/coding" element={<Coding />}></Route>
-            <Route path="/topics/football" element={<Football />}></Route>
-            <Route path="/topics/cooking" element={<Cooking />}></Route>
-          </Routes>
         </div>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/articles" element={<ArticleList />} />
+          <Route
+            path="/articles/:article_id"
+            element={<SingleArticle />}
+          ></Route>
+          <Route path="/topics/coding" element={<Coding />}></Route>
+          <Route path="/topics/football" element={<Football />}></Route>
+          <Route path="/topics/cooking" element={<Cooking />}></Route>
+        </Routes>
       </div>
     </BrowserRouter>
   );

@@ -2,7 +2,7 @@ import DisplayArticles from "./DisplayArticles";
 
 const Cooking = () => {
   return (
-    <div className="cooking-page">
+    <div className="topic-page">
       <DisplayArticles topic="cooking"></DisplayArticles>
     </div>
   );

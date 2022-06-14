@@ -18,7 +18,6 @@ export const updateVotes = (id, increment) => {
 
 export const fetchArticlesByTopic = (topic) => {
   return newsAPI.get("/articles").then(({ data }) => {
-    console.log(data.articles);
     return data.articles.filter((article) => article.topic === topic);
   });
 };

@@ -19,13 +19,13 @@ const DisplayArticles = (props) => {
 
       setIsLoading(false);
     });
-  }, []);
+  }, [props.topic]);
 
   if (isLoading) {
     return (
-      <div className="loading-wrapper">
-        <h1 id="loading">Loading...</h1>
-      </div>
+      <>
+        <h1 className="loading">loading...</h1>
+      </>
     );
   }
 
@@ -38,18 +38,21 @@ const DisplayArticles = (props) => {
           return (
             <li key={article.article_id} className="singleArticle">
               <Link to={`/articles/${article.article_id}`}>
-                <h2>{article.title}</h2>
+                <h2 className="article__title">{article.title}</h2>
               </Link>
 
-              <p className="article__author">by {article.author}</p>
-              <p className="article__topic">in {article.topic}</p>
+              <p className="article__author">{article.author}</p>
+              <p className="article__topic">{article.topic}</p>
               <p className="article__created">
-                {`Created on ${formatDate(article.created_at).date} at ${
+                {`${formatDate(article.created_at).date} at ${
                   formatDate(article.created_at).time
                 }`}
               </p>
               <p className="article__time"></p>
-              <p>{article.body}</p>
+              <p className="article__preview">{article.body}</p>
+              <Link to={`/articles/${article.article_id}`}>
+                <p className="read-article">read article</p>
+              </Link>
             </li>
           );
         })}

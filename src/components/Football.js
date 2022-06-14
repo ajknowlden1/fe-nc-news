@@ -1,7 +1,7 @@
 import DisplayArticles from "./DisplayArticles";
 const Football = () => {
   return (
-    <div className="football-page">
+    <div className="topic-page">
       <DisplayArticles topic="football"></DisplayArticles>
     </div>
   );
