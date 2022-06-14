@@ -3,12 +3,16 @@ import { formatDate } from "../utils/formatDate";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SortParams from "./SortParams";
+import Loading from "./Loading";
 const DisplayArticles = (props) => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [sort, setSort] = useState("Date created");
+  const [order, setOrder] = useState("Ascending");
 
   useEffect(() => {
-    fetchAllArticles().then(({ data }) => {
+    fetchAllArticles(sort, order).then(({ data }) => {
+      console.log(data);
       if (props.topic !== "All Articles") {
         setArticles(
           data.articles.filter((article) => article.topic === props.topic)
@@ -19,22 +23,21 @@ const DisplayArticles = (props) => {
 
       setIsLoading(false);
     });
-  }, [props.topic]);
+  }, [props.topic, sort, order]);
 
   if (isLoading) {
-    return (
-      <>
-        <h1 className="loading">loading...</h1>
-      </>
-    );
+    return <Loading isLoading={isLoading} />;
   }
 
   return (
     <div className="ArticleList">
       <h1 className="topic-header">{props.topic}</h1>
-      <SortParams />
+      <SortParams setSort={setSort} setOrder={setOrder} />
       <ul className="articles">
         {articles.map((article) => {
+          console.log(
+            article.body.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")[0]
+          );
           return (
             <li key={article.article_id} className="singleArticle">
               <Link to={`/articles/${article.article_id}`}>
@@ -49,7 +52,15 @@ const DisplayArticles = (props) => {
                 }`}
               </p>
               <p className="article__time"></p>
-              <p className="article__preview">{article.body}</p>
+              <p className="comment-count">Comments: {article.comment_count}</p>
+              <p className="article__preview">
+                {
+                  article.body
+                    .replace(/([.?!])\s*(?=[A-Z])/g, "$1|")
+                    .split("|")[0]
+                }
+              </p>
+
               <Link to={`/articles/${article.article_id}`}>
                 <p className="read-article">read article</p>
               </Link>

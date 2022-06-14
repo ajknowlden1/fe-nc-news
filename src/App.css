@@ -81,8 +81,10 @@
 }
 
 .single-article {
+  display: block;
   width: 75%;
   margin: auto;
+  align-items: center;
 }
 
 .singleArticle {
@@ -138,13 +140,25 @@
   font-size: smaller;
 }
 
+.comment-count {
+  padding-bottom: 0.5rem;
+}
+
+.split-body {
+  list-style: none;
+  text-align: center;
+}
+
+.split-body li {
+  padding: 1rem;
+}
+
 .article__created {
   margin-bottom: 0.5rem;
 }
 
 .article__body {
   margin-bottom: 0.5rem;
-  white-space: pre-wrap;
 }
 .article__title-underline {
   margin-bottom: 0.5rem;
@@ -203,12 +217,13 @@ a {
 }
 
 .article__votes {
-  display: inline-flex;
-  justify-content: center;
   align-items: center;
+  display: inline-block;
+  align-self: center;
+  width: 40%;
+  height: fit-content;
+  margin-left: auto;
   margin-right: auto;
-  margin-right: auto;
-  width: 80%;
 }
 
 .article__votes p {
@@ -234,7 +249,7 @@ a {
 
 .vote-btn {
   background-color: #8daa91;
-  width: fit-content;
+
   padding: 0.5rem;
   border: solid 2px #455e49;
   border-radius: 10px;
@@ -256,6 +271,9 @@ a {
   text-align: center;
 }
 
+.loading-msg {
+  text-align: center;
+}
 /* @media screen and (min-width: 600px) {
   * {
     font-family: "Roboto";
