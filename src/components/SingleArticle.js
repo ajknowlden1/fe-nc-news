@@ -4,6 +4,7 @@ import { fetchSingleArticle, updateVotes } from "../utils/api";
 import { formatDate } from "../utils/formatDate";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import { DisplayVotes } from "./DisplayVotes";
 
 const SingleArticle = () => {
   let params = useParams();
@@ -26,7 +27,9 @@ const SingleArticle = () => {
 
   const handleVotes = (increment) => {
     setArticleVotes((articleVotes) => articleVotes + increment);
-    updateVotes(params.article_id, increment);
+    updateVotes(params.article_id, increment).then((res) => {
+      console.log(res);
+    });
   };
 
   if (isLoading) {
@@ -62,15 +65,7 @@ const SingleArticle = () => {
           })}
         </ul>
       </p>
-      <span className="article__votes">
-        <p>Votes: {articleVotes}</p>
-        <button onClick={() => handleVotes(1)} className="vote-btn">
-          Upvote
-        </button>
-        <button onClick={() => handleVotes(-1)} className="vote-btn">
-          Downvote
-        </button>
-      </span>
+      <DisplayVotes articleVotes={articleVotes} handleVotes={handleVotes} />
     </div>
   );
 };

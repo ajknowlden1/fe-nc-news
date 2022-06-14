@@ -9,15 +9,16 @@ const DisplayArticles = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [sort, setSort] = useState("Date created");
   const [order, setOrder] = useState("Ascending");
-  const [topic, setTopic] = useState(props.topic);
+  // eslint-disable-next-line
 
   useEffect(() => {
     setIsLoading(true);
-    fetchAllArticles(sort, order, topic).then(({ data }) => {
+
+    fetchAllArticles(sort, order, props.topic).then(({ data }) => {
       setArticles(data.articles);
       setIsLoading(false);
     });
-  }, [sort, order, topic]);
+  }, [sort, order, props.topic]);
 
   if (isLoading) {
     return <Loading isLoading={isLoading} />;

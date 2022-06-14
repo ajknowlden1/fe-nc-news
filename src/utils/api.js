@@ -25,7 +25,9 @@ export const fetchSingleArticle = (id) => {
 export const updateVotes = (id, increment) => {
   return newsAPI
     .patch(`/articles/${id}`, { inc_vote: increment })
-    .then((res) => {});
+    .then((res) => {
+      return res;
+    });
 };
 
 export const fetchArticlesByTopic = (topic) => {
