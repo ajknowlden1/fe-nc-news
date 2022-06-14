@@ -19,7 +19,7 @@ const SingleArticle = () => {
       setArticleVotes(data.article.votes);
       setArticle(data.article);
       setSplitBody(
-        data.article.body.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
+        data.article.body.replace(/([.?!])\s+(?=[A-Z])/g, "$1|").split("|")
       );
       setIsLoading(false);
     });
@@ -27,13 +27,21 @@ const SingleArticle = () => {
 
   const handleVotes = (increment) => {
     setArticleVotes((articleVotes) => articleVotes + increment);
-    updateVotes(params.article_id, increment).then((res) => {
-      console.log(res);
-    });
+    updateVotes(params.article_id, increment)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        alert("an error has occurred");
+      });
   };
 
   if (isLoading) {
-    return <Loading isLoading={isLoading} />;
+    return (
+      <div className="loading-wrap">
+        <Loading isLoading={isLoading} />
+      </div>
+    );
   }
   return (
     <div className="single-article">
@@ -51,7 +59,7 @@ const SingleArticle = () => {
         </span>
       </div>
 
-      <p className="article__body">
+      <div className="article__body">
         <ul className="split-body">
           {splitBody.map((sentence) => {
             return (
@@ -64,7 +72,7 @@ const SingleArticle = () => {
             );
           })}
         </ul>
-      </p>
+      </div>
       <DisplayVotes articleVotes={articleVotes} handleVotes={handleVotes} />
     </div>
   );
