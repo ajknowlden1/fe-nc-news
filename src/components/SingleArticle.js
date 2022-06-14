@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchSingleArticle, updateVotes } from "../utils/api";
 import { formatDate } from "../utils/formatDate";
+import Loading from "./Loading";
 
 const SingleArticle = () => {
   let params = useParams();
@@ -12,7 +13,7 @@ const SingleArticle = () => {
   useEffect(() => {
     setIsLoading(true);
     fetchSingleArticle(params.article_id).then(({ data }) => {
-      console.log(data);
+      setArticleVotes(data.article.votes);
       setArticle(data.article);
       setIsLoading(false);
     });
@@ -24,7 +25,7 @@ const SingleArticle = () => {
   };
 
   if (isLoading) {
-    return <h1>loading...</h1>;
+    return <Loading isLoading={isLoading} />;
   }
   return (
     <div className="single-article">
@@ -37,7 +38,16 @@ const SingleArticle = () => {
         </p>
       </span>
 
-      <p className="article__body">{article.body.replace(/\.$/gm, `. \n `)}</p>
+      <p className="article__body">
+        <ul className="split-body">
+          {article.body
+            .replace(/([.?!])\s*(?=[A-Z])/g, "$1|")
+            .split("|")
+            .map((sentence) => {
+              return <li key={`${sentence}`}>{sentence}</li>;
+            })}
+        </ul>
+      </p>
       <span className="article__votes">
         <p>Votes: {articleVotes}</p>
         <button onClick={() => handleVotes(1)} className="vote-btn">
