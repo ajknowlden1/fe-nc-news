@@ -1,4 +1,4 @@
-import { fetchAllArticles, fetchArticlesByTopic } from "../utils/api";
+import { fetchAllArticles } from "../utils/api";
 import { formatDate } from "../utils/formatDate";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,19 +9,15 @@ const DisplayArticles = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [sort, setSort] = useState("Date created");
   const [order, setOrder] = useState("Ascending");
+  const [topic, setTopic] = useState(props.topic);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchAllArticles(sort, order).then(({ data }) => {
+    fetchAllArticles(sort, order, topic).then(({ data }) => {
       setArticles(data.articles);
       setIsLoading(false);
     });
-  }, [sort, order]);
-
-  useEffect(() => {
-    console.log(props.topic);
-    fetchArticlesByTopic(props.topic);
-  });
+  }, [sort, order, topic]);
 
   if (isLoading) {
     return <Loading isLoading={isLoading} />;
@@ -33,9 +29,6 @@ const DisplayArticles = (props) => {
       <SortParams setSort={setSort} setOrder={setOrder} />
       <ul className="articles">
         {articles.map((article) => {
-          console.log(
-            article.body.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")[0]
-          );
           return (
             <li key={article.article_id} className="singleArticle">
               <Link to={`/articles/${article.article_id}`}>
