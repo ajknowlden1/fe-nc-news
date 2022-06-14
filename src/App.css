@@ -79,7 +79,14 @@
   margin-right: 0.5rem;
   text-align: center;
 }
+.most-recent {
+  display: block;
+  text-align: center;
+}
 
+most-recent h2 {
+  text-align: center;
+}
 .single-article {
   display: block;
   width: 75%;

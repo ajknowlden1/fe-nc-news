@@ -1,4 +1,4 @@
-import { fetchAllArticles } from "../utils/api";
+import { fetchAllArticles, fetchArticlesByTopic } from "../utils/api";
 import { formatDate } from "../utils/formatDate";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,19 +11,17 @@ const DisplayArticles = (props) => {
   const [order, setOrder] = useState("Ascending");
 
   useEffect(() => {
+    setIsLoading(true);
     fetchAllArticles(sort, order).then(({ data }) => {
-      console.log(data);
-      if (props.topic !== "All Articles") {
-        setArticles(
-          data.articles.filter((article) => article.topic === props.topic)
-        );
-      } else {
-        setArticles(data.articles);
-      }
-
+      setArticles(data.articles);
       setIsLoading(false);
     });
-  }, [props.topic, sort, order]);
+  }, [sort, order]);
+
+  useEffect(() => {
+    console.log(props.topic);
+    fetchArticlesByTopic(props.topic);
+  });
 
   if (isLoading) {
     return <Loading isLoading={isLoading} />;
