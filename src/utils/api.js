@@ -35,3 +35,7 @@ export const fetchArticlesByTopic = (topic) => {
     return res.data.articles;
   });
 };
+
+export const fetchArticleComments = (id) => {
+  return newsAPI.get(`/articles/${id}/comments`);
+};
