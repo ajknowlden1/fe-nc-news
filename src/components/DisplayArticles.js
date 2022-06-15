@@ -21,7 +21,11 @@ const DisplayArticles = (props) => {
   }, [sort, order, props.topic]);
 
   if (isLoading) {
-    return <Loading isLoading={isLoading} />;
+    return (
+      <div className="loading-wrap">
+        <Loading isLoading={isLoading} />
+      </div>
+    );
   }
 
   return (

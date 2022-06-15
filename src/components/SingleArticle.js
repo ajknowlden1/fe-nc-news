@@ -5,14 +5,16 @@ import { formatDate } from "../utils/formatDate";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import { DisplayVotes } from "./DisplayVotes";
+import { CommentSection } from "./CommentSection";
 
 const SingleArticle = () => {
   let params = useParams();
-
+  const [visible, setVisible] = useState(false);
   const [article, setArticle] = useState({});
   const [articleVotes, setArticleVotes] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [splitBody, setSplitBody] = useState([]);
+
   useEffect(() => {
     setIsLoading(true);
     fetchSingleArticle(params.article_id).then(({ data }) => {
@@ -24,6 +26,10 @@ const SingleArticle = () => {
       setIsLoading(false);
     });
   }, [params.article_id]);
+
+  const handleComments = () => {
+    visible === false ? setVisible(true) : setVisible(false);
+  };
 
   const handleVotes = (increment) => {
     setArticleVotes((articleVotes) => articleVotes + increment);
@@ -47,6 +53,7 @@ const SingleArticle = () => {
     <div className="single-article">
       <div className="single-article__header">
         <h2 className="article__title-underline">{article.title}</h2>
+
         <span className="article-info">
           <p className="article__author-centre">{article.author}</p>
           <Link to={`/topics/${article.topic}`}>
@@ -57,6 +64,7 @@ const SingleArticle = () => {
             {formatDate(article.created_at).date}
           </p>
         </span>
+        <DisplayVotes articleVotes={articleVotes} handleVotes={handleVotes} />
       </div>
 
       <div className="article__body">
@@ -73,7 +81,17 @@ const SingleArticle = () => {
           })}
         </ul>
       </div>
-      <DisplayVotes articleVotes={articleVotes} handleVotes={handleVotes} />
+
+      <button
+        onClick={() => {
+          handleComments();
+        }}
+        className="show-comments"
+      >
+        {visible === false ? "show comments" : "hide comments"}
+      </button>
+
+      <CommentSection visible={visible} id={params.article_id} />
     </div>
   );
 };
