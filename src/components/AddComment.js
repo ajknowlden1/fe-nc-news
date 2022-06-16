@@ -51,7 +51,7 @@ export const AddComment = (props) => {
           required
           className="comment-input"
           onChange={(event) => setCommentBody(event.target.value)}
-          onBlur={() => checkIsValid()}
+          onBlur={() => checkIsValid(valid)}
         ></textarea>
       </label>
       <p id="form-alert"></p>
