@@ -39,3 +39,9 @@ export const fetchArticlesByTopic = (topic) => {
 export const fetchArticleComments = (id) => {
   return newsAPI.get(`/articles/${id}/comments`);
 };
+
+export const postComment = (id, commentToPost) => {
+  return newsAPI.post(`/articles/${id}/comments`, commentToPost).then((res) => {
+    return res;
+  });
+};

@@ -315,6 +315,10 @@ a {
   margin: 0.5rem;
 }
 
+#no-comment {
+  text-align: center;
+}
+
 .topic-header {
   text-transform: capitalize;
 }
@@ -415,14 +419,30 @@ a {
 .comment {
   list-style: none;
 }
-
-.show-comments {
+.comment-input {
+  border: 2.5px solid #455e49;
   background-color: #122230;
+  border-radius: 10px;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #8daa91;
+  width: fit-content;
+  height: fit-content;
+
+  padding: 2px;
+  border: solid 2px #455e49;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+.show-comments {
+  background-color: #8daa91;
 
   height: fit-content;
   text-align: center;
   align-content: center;
-  color: white;
+
   display: block;
 
   padding: 0.5rem;
@@ -432,6 +452,22 @@ a {
   margin-left: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+#comment-posted {
+  text-align: center;
+}
+
+.add-comment {
+  text-align: center;
+}
+
+#form-alert {
+  margin: 1rem;
+}
+
+.user-posted {
+  text-align: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -451,6 +487,7 @@ a {
 
   .comments__header {
     text-align: center;
+    margin: 1rem;
 
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -531,6 +568,14 @@ a {
     background-color: #ffffff00;
     border-style: hidden;
   }
+
+  .comment-input {
+    margin: 1rem;
+  }
+}
+
+.user-posted {
+  text-align: center;
 }
 
 /* @media screen and (min-width: 600px) {
