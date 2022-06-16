@@ -8,6 +8,7 @@ export const CommentSection = (props) => {
   const [comments, setComments] = useState([]);
   const [posted, setIsPosted] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
     fetchArticleComments(props.id).then(({ data }) => {
@@ -23,6 +24,9 @@ export const CommentSection = (props) => {
     return (
       <div className="comments-section">
         <h3 className="comments__header">Comments</h3>
+        <div className="comment-deleted">
+          {deleted === true ? <p>Comment deleted!</p> : <></>}
+        </div>
         <div className="user-posted">
           <>
             {posted === true ? (
@@ -47,6 +51,8 @@ export const CommentSection = (props) => {
                     <SingleComment
                       comment={comment}
                       setComments={setComments}
+                      setLoading={setLoading}
+                      setDeleted={setDeleted}
                     />
                   </li>
                 );

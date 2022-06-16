@@ -16,6 +16,7 @@ function App() {
     username: "tickle122",
     password: "password123",
     isLoggedIn: true,
+    articlesVoted: [0],
   });
   return (
     <BrowserRouter>

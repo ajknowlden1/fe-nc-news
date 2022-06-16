@@ -45,3 +45,7 @@ export const postComment = (id, commentToPost) => {
     return res;
   });
 };
+
+export const deleteComment = (id) => {
+  return newsAPI.delete(`/comments/${id}`);
+};
