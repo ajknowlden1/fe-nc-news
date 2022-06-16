@@ -442,7 +442,7 @@ a {
   height: fit-content;
   text-align: center;
   align-content: center;
-  color: white;
+
   display: block;
 
   padding: 0.5rem;
@@ -459,6 +459,14 @@ a {
 }
 
 .add-comment {
+  text-align: center;
+}
+
+#form-alert {
+  margin: 1rem;
+}
+
+.user-posted {
   text-align: center;
 }
 
@@ -479,6 +487,7 @@ a {
 
   .comments__header {
     text-align: center;
+    margin: 1rem;
 
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -559,6 +568,14 @@ a {
     background-color: #ffffff00;
     border-style: hidden;
   }
+
+  .comment-input {
+    margin: 1rem;
+  }
+}
+
+.user-posted {
+  text-align: center;
 }
 
 /* @media screen and (min-width: 600px) {

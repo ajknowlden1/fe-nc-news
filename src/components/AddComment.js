@@ -5,8 +5,18 @@ import { useContext } from "react";
 
 export const AddComment = (props) => {
   const [commentBody, setCommentBody] = useState("");
+  const [valid, setValid] = useState(false);
 
   const { user } = useContext(UserContext);
+
+  const checkIsValid = () => {
+    if (!commentBody.length) {
+      setValid(false);
+      document.getElementById("form-alert").innerHTML =
+        "Please enter a valid comment body";
+    } else setValid(true);
+    document.getElementById("form-alert").innerHTML = "";
+  };
 
   const handleCommentPost = (event) => {
     let commentToPost = {
@@ -35,11 +45,19 @@ export const AddComment = (props) => {
       className="add-comment"
     >
       <h3>Comment on this article</h3>
-      <input
-        className="comment-input"
-        onChange={(event) => setCommentBody(event.target.value)}
-      ></input>
-      <button className="submit-btn">Submit</button>
+      <label>
+        <textarea
+          required
+          className="comment-input"
+          onChange={(event) => setCommentBody(event.target.value)}
+          onBlur={() => checkIsValid()}
+        ></textarea>
+      </label>
+      <p id="form-alert"></p>
+
+      <button disabled={commentBody.length < 1} className="submit-btn">
+        Submit
+      </button>
     </form>
   );
 };
