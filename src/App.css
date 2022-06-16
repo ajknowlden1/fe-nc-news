@@ -415,7 +415,7 @@ a {
 .comment-body {
   padding: 0.5rem;
   height: 80%;
-  width: fit-content;
+
   background-color: #0d1821;
   border-bottom: solid 2.5px #455e49;
 }
@@ -459,8 +459,6 @@ a {
   padding: 1rem;
   margin: 1rem;
   list-style-type: none;
-}
-.user-profile {
 }
 
 .comment {
@@ -598,9 +596,6 @@ comment .add-comment {
   }
   .comment-top {
     border-bottom: 2.5px solid #455e49;
-  }
-
-  .comment-body {
   }
 
   .comment-created {
