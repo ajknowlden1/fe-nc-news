@@ -319,7 +319,7 @@ a {
 }
 .material-symbols-outlined {
   font-size: 1.25rem;
-  text-align: center;
+
   width: auto;
   height: auto;
   align-items: center;
@@ -400,42 +400,32 @@ a {
 .single-comment {
   padding: 0.5rem;
   display: flexbox;
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  width: 90%;
-
-  justify-content: center;
-
-  height: fit-content;
-}
-.user-info {
-  font-size: 0.75rem;
-  display: block;
-  justify-content: center;
-
-  text-align: center;
-
-  margin: 0.5rem;
-  padding: 0.25rem;
 }
 .comment-username {
-  padding: 1rem;
+  padding: 0.5rem;
+  width: fit-content;
+
+  text-align: left;
 }
 
+.user-info {
+  display: inline-flex;
+  width: 100%;
+}
 .comment-body {
   padding: 0.5rem;
-  height: 20%;
+  height: 80%;
   width: fit-content;
   background-color: #0d1821;
-  border-top: solid 2.5px #455e49;
   border-bottom: solid 2.5px #455e49;
 }
 
 .comment-created {
   margin: 0.5rem;
+}
+
+.comment-top {
+  border-bottom: solid 2.5px #455e49;
 }
 
 .count-icon {
@@ -453,6 +443,7 @@ a {
   border: 2.5px solid #455e49;
   background-color: #122230;
   border-radius: 10px;
+  height: fit-content;
 }
 
 .single-article__header {
@@ -549,17 +540,21 @@ comment .add-comment {
 }
 
 .delete-button {
+  display: flexbox;
   margin: 0.25rem;
   background-color: #8daa91;
-  float: right;
+  height: auto;
+  width: auto;
+  justify-content: center;
 
   border: solid 2px #455e49;
   border-radius: 20%;
-  margin: 0.5rem;
 }
 
 #delete {
-  display: flexbox;
+  display: inline-flex;
+  width: 100%;
+  justify-content: right;
 }
 
 .comment-deleted {
@@ -594,9 +589,6 @@ comment .add-comment {
     padding: 0.5rem;
     display: inline-flex;
     width: 100%;
-
-    align-items: flex-start;
-    justify-content: left;
   }
   .user-info {
     width: 25%;
