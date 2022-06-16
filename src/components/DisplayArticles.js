@@ -31,14 +31,37 @@ const DisplayArticles = (props) => {
   return (
     <div className="ArticleList">
       <h1 className="topic-header">{props.topic}</h1>
-      <SortParams setSort={setSort} setOrder={setOrder} />
+      <SortParams
+        setSort={setSort}
+        sort={sort}
+        setOrder={setOrder}
+        order={order}
+      />
       <ul className="articles">
         {articles.map((article) => {
           return (
             <li key={article.article_id} className="singleArticle">
-              <Link to={`/articles/${article.article_id}`}>
-                <h2 className="article__title">{article.title}</h2>
-              </Link>
+              <div className="single-article-wrap">
+                <Link to={`/articles/${article.article_id}`}>
+                  <h2 className="article__title">{article.title}</h2>
+                </Link>
+                <div className="count-wrap">
+                  <p className="vote-count">
+                    <div className="count-icon">
+                      <span class="material-symbols-outlined">thumb_up</span>
+                    </div>
+                    {article.votes}
+                  </p>
+                  <div className="count-wrap">
+                    <p className="comment-count">
+                      <div className="count-icon">
+                        <span class="material-symbols-outlined">chat</span>
+                      </div>
+                      {article.comment_count}
+                    </p>
+                  </div>
+                </div>
+              </div>
 
               <p className="article__author">{article.author}</p>
               <p className="article__topic">{article.topic}</p>
@@ -48,7 +71,7 @@ const DisplayArticles = (props) => {
                 }`}
               </p>
               <p className="article__time"></p>
-              <p className="comment-count">Comments: {article.comment_count}</p>
+
               <p className="article__preview">
                 {
                   article.body
