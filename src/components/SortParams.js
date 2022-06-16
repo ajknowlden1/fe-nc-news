@@ -4,8 +4,9 @@ const SortParams = (props) => {
       <h3>Sort by</h3>
       <form>
         <select
-          onBlur={(event) => props.setSort(event.target.value)}
+          onChange={(event) => props.setSort(event.target.value)}
           className="sort-by"
+          value={props.sort}
         >
           <option>Date created</option>
 
@@ -14,8 +15,9 @@ const SortParams = (props) => {
         </select>
         <h3>Order</h3>
         <select
-          onBlur={(event) => props.setOrder(event.target.value)}
+          onChange={(event) => props.setOrder(event.target.value)}
           className="order"
+          value={props.order}
         >
           <option>Ascending</option>
           <option>Descending</option>

@@ -148,6 +148,7 @@ most-recent h2 {
 .article__preview {
   display: block;
   width: 20em;
+  margin-top: 0.5rem;
 
   overflow: hidden;
   white-space: nowrap;
@@ -157,7 +158,11 @@ most-recent h2 {
 }
 
 .comment-count {
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
 }
 
 .split-body {
@@ -216,6 +221,13 @@ most-recent h2 {
   margin-top: 1rem;
   align-items: baseline;
   padding: 0.5rem;
+}
+
+.vote-count {
+  display: inline-flex;
+  align-items: center;
+  text-align: left;
+  width: 100%;
 }
 
 .single-article__header {
@@ -405,6 +417,17 @@ a {
   margin: 0.5rem;
 }
 
+.count-icon {
+  background-color: #8daa91;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #0d1821;
+  padding: 1px;
+  border: solid 2px #455e49;
+  border-radius: 20%;
+  margin: 0.5rem;
+}
+
 .comment-main {
   border: 2.5px solid #455e49;
   background-color: #122230;
@@ -414,6 +437,10 @@ a {
 .single-article__header {
   font-size: 1rem;
   width: 80%;
+}
+
+.single-article-wrap {
+  text-align: left;
 }
 
 .comment {
@@ -457,8 +484,7 @@ a {
 #comment-posted {
   text-align: center;
 }
-
-.add-comment {
+comment .add-comment {
   text-align: center;
 }
 
@@ -468,6 +494,12 @@ a {
 
 .user-posted {
   text-align: center;
+}
+
+.count-wrap {
+  display: inline-flex;
+  text-align: left;
+  justify-items: left;
 }
 
 @media screen and (min-width: 600px) {
