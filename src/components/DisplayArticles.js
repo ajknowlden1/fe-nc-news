@@ -14,10 +14,12 @@ const DisplayArticles = (props) => {
   useEffect(() => {
     setIsLoading(true);
 
-    fetchAllArticles(sort, order, props.topic).then(({ data }) => {
-      setArticles(data.articles);
-      setIsLoading(false);
-    });
+    fetchAllArticles(sort, order, props.topic)
+      .then(({ data }) => {
+        setArticles(data.articles);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
   }, [sort, order, props.topic]);
 
   if (isLoading) {

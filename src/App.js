@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Coding from "./components/Coding";
 import Football from "./components/Football";
 import Cooking from "./components/Cooking";
+import { NotFound } from "./components/NotFound";
 import { useState } from "react";
 import { UserContext } from "./contexts/Theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -38,6 +39,7 @@ function App() {
             <Route path="/topics/coding" element={<Coding />}></Route>
             <Route path="/topics/football" element={<Football />}></Route>
             <Route path="/topics/cooking" element={<Cooking />}></Route>
+            <Route path="*" exact="true" element={<NotFound />}></Route>
           </Routes>
         </div>
       </UserContext.Provider>

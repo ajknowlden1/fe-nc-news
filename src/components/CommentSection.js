@@ -37,6 +37,7 @@ export const CommentSection = (props) => {
                 setLoading={setLoading}
                 posted={posted}
                 setPosted={setIsPosted}
+                setComments={setComments}
               />
             )}
           </>

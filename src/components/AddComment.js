@@ -24,6 +24,7 @@ export const AddComment = (props) => {
       body: commentBody,
     };
     event.preventDefault();
+
     postComment(props.id, commentToPost).then((res) => {
       if (res.status !== 201) {
         document.getElementById("post-msg").innerHTML =

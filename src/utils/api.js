@@ -27,7 +27,8 @@ export const updateVotes = (id, increment) => {
     .patch(`/articles/${id}`, { inc_vote: increment })
     .then((res) => {
       return res;
-    });
+    })
+    .catch((err) => err);
 };
 
 export const fetchArticlesByTopic = (topic) => {
