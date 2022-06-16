@@ -1,7 +1,7 @@
 import { UserContext } from "../contexts/Theme";
 import { useContext } from "react";
 const Header = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   return (
     <header>
       <h1 className="header">NC News</h1>

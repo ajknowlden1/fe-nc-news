@@ -14,6 +14,7 @@ const SingleArticle = () => {
   const [articleVotes, setArticleVotes] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [splitBody, setSplitBody] = useState([]);
+  const [voted, setVoted] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,8 +34,10 @@ const SingleArticle = () => {
 
   const handleVotes = (increment) => {
     setArticleVotes((articleVotes) => articleVotes + increment);
+
     updateVotes(params.article_id, increment)
       .then((res) => {
+        setVoted(true);
         return res;
       })
       .catch((err) => {
@@ -64,7 +67,11 @@ const SingleArticle = () => {
             {formatDate(article.created_at).date}
           </p>
         </span>
-        <DisplayVotes articleVotes={articleVotes} handleVotes={handleVotes} />
+        <DisplayVotes
+          articleVotes={articleVotes}
+          handleVotes={handleVotes}
+          voted={voted}
+        />
       </div>
 
       <div className="article__body">
