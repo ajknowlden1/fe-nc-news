@@ -91,7 +91,12 @@ const SingleArticle = () => {
         {visible === false ? "show comments" : "hide comments"}
       </button>
 
-      <CommentSection visible={visible} id={params.article_id} />
+      <CommentSection
+        comment_count={article.comment_count}
+        visible={visible}
+        id={params.article_id}
+        loading={setIsLoading}
+      />
     </div>
   );
 };

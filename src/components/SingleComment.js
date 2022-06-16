@@ -1,4 +1,7 @@
+import { formatDate } from "../utils/formatDate";
+
 export const SingleComment = (props) => {
+  const { date, time } = formatDate(props.comment.created_at);
   return (
     <div className="single-comment">
       <span className="user-info">
@@ -8,7 +11,9 @@ export const SingleComment = (props) => {
 
       <div className="comment-main">
         <p className="comment-body">{props.comment.body}</p>
-        <p className="comment-created">2020-10-12</p>
+        <p className="comment-created">
+          {date} at {time}
+        </p>
       </div>
     </div>
   );
