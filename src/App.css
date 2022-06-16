@@ -385,8 +385,10 @@ a {
 
 .comments-section {
   display: block;
+  width: 95%;
 
-  margin: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0.5rem;
 }
 
@@ -445,6 +447,9 @@ a {
   border-radius: 10px;
   height: fit-content;
 }
+.comment-wrap {
+  width: 90%;
+}
 
 .single-article__header {
   font-size: 1rem;
@@ -493,7 +498,7 @@ a {
   width: fit-content;
   height: fit-content;
 
-  padding: 2px;
+  padding: 5px;
   border: solid 2px #455e49;
   border-radius: 10px;
   margin: 0.5rem;
@@ -512,8 +517,8 @@ a {
   border-radius: 10px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #comment-posted {
