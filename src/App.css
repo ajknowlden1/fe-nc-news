@@ -7,7 +7,6 @@
 .App {
   background-color: #0d1821;
   color: white;
-  width: 100%;
 }
 
 .header {
@@ -20,14 +19,20 @@
   text-align: center;
 }
 
-.NavLinks {
+/* .NavLinks {
   list-style: none;
-  font-size: 18px;
+  font-size: 1.25rem;
+  width: 90%;
 
-  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  display: inline-flex;
+  align-items: center;
 
   height: fit-content;
-}
+} */
 
 .logged-in {
   padding: 0.5rem;
@@ -35,7 +40,7 @@
   width: 75%;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .TopicLinks {
@@ -44,13 +49,8 @@
 
 .NavBar {
   background-color: #0d182100;
-
-  text-align: center;
-  height: fit-content;
-  width: 75%;
-  margin-bottom: 0.5rem;
-  margin-right: auto;
-  margin-left: auto;
+  margin-top: 0.5rem;
+  display: flexbox;
 
   transition-duration: 200ms;
 }
@@ -77,15 +77,16 @@
 
 .NavBar h3 {
   text-align: start;
-  width: fit-content;
+
   margin: 0.5rem;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 .nav__link {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   display: inline;
+  width: fit-content;
 
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -177,6 +178,9 @@ most-recent h2 {
   padding: 1rem;
 }
 
+.comments-section h3 {
+  margin: 1rem;
+}
 .article__created {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -335,6 +339,15 @@ a {
   text-align: center;
 }
 
+.wrapNav {
+  display: flexbox;
+
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+}
+
 .topic-header {
   text-transform: capitalize;
 }
@@ -392,6 +405,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   align-items: center;
+  width: 90%;
 
   justify-content: center;
 
@@ -404,17 +418,20 @@ a {
 
   text-align: center;
 
-  margin: 1rem;
+  margin: 0.5rem;
   padding: 0.25rem;
 }
 .comment-username {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .comment-body {
-  margin: 0.5rem;
   padding: 0.5rem;
-  height: fit-content;
+  height: 20%;
+  width: fit-content;
+  background-color: #0d1821;
+  border-top: solid 2.5px #455e49;
+  border-bottom: solid 2.5px #455e49;
 }
 
 .comment-created {
@@ -447,14 +464,39 @@ a {
   text-align: left;
 }
 
+.user-list {
+  padding: 1rem;
+  margin: 1rem;
+  list-style-type: none;
+}
+.user-profile {
+}
+
 .comment {
   list-style: none;
 }
 .comment-input {
   border: 2.5px solid #455e49;
+  padding: 0.5rem;
   background-color: #122230;
+  width: 75%;
+  height: 4rem;
+
   border-radius: 10px;
   color: white;
+}
+
+.not-found {
+  display: flexbox;
+  flex-direction: column;
+  width: fit-content;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.not-found a {
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
 .submit-btn {
@@ -517,7 +559,6 @@ comment .add-comment {
 }
 
 #delete {
-  height: auto;
   display: flexbox;
 }
 
@@ -627,6 +668,14 @@ comment .add-comment {
 
   .comment-input {
     margin: 1rem;
+  }
+  .submit-btn {
+    background-color: #8daa91;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    border: solid 2px #455e49;
+    border-radius: 10px;
+    margin: 0.5rem;
   }
 }
 

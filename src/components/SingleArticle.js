@@ -33,11 +33,11 @@ const SingleArticle = () => {
   };
 
   const handleVotes = (increment) => {
+    increment === 1 ? setVoted(true) : setVoted(false);
     setArticleVotes((articleVotes) => articleVotes + increment);
 
     updateVotes(params.article_id, increment)
       .then((res) => {
-        setVoted(true);
         return res;
       })
       .catch((err) => {

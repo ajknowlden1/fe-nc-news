@@ -50,3 +50,9 @@ export const postComment = (id, commentToPost) => {
 export const deleteComment = (id) => {
   return newsAPI.delete(`/comments/${id}`);
 };
+
+export const fetchUsers = (id) => {
+  return newsAPI.get(`/users`).then((res) => {
+    return res.data;
+  });
+};
