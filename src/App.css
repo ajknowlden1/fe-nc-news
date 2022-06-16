@@ -573,7 +573,8 @@ comment .add-comment {
     margin-right: auto;
     margin-left: auto;
 
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     padding: 0.5rem;
   }
 
@@ -588,24 +589,18 @@ comment .add-comment {
   .single-comment {
     padding: 0.5rem;
     display: inline-flex;
+    margin: 2px;
     width: 100%;
-  }
-  .user-info {
-    width: 25%;
-    align-items: center;
-    justify-content: center;
-    margin: 0.5rem;
-
-    padding: 0.25rem;
   }
 
   .comment {
     align-items: flex-start;
   }
+  .comment-top {
+    border-bottom: 2.5px solid #455e49;
+  }
 
   .comment-body {
-    margin: 0.5rem;
-    width: 75%;
   }
 
   .comment-created {
