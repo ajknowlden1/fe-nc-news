@@ -11,19 +11,20 @@ import { NotFound } from "./components/NotFound";
 import { useState } from "react";
 import { UserContext } from "./contexts/Theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Users } from "./components/Users";
 
 function App() {
   const [user, setUser] = useState({
     username: "tickle122",
     password: "password123",
     isLoggedIn: true,
-    articlesVoted: [0],
+    articlesVoted: [],
   });
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         <div className="App">
-          <div className="sideNav">
+          <div className="wrapNav">
             <Header />
 
             <NavBar />
@@ -39,7 +40,8 @@ function App() {
             <Route path="/topics/coding" element={<Coding />}></Route>
             <Route path="/topics/football" element={<Football />}></Route>
             <Route path="/topics/cooking" element={<Cooking />}></Route>
-            <Route path="*" exact="true" element={<NotFound />}></Route>
+            <Route path="/users" element={<Users />}></Route>
+            <Route path="/*" exact="true" element={<NotFound />}></Route>
           </Routes>
         </div>
       </UserContext.Provider>

@@ -25,23 +25,25 @@ export const SingleComment = (props) => {
   if (visible === true) {
     return (
       <div className="single-comment">
-        <span className="user-info">
-          <span className="material-symbols-outlined">person_filled</span>
-          <p className="comment-username">{props.comment.author}</p>
-        </span>
-
         <div className="comment-main">
-          {props.comment.author === user.username ? (
-            <button
-              className="delete-button"
-              onClick={() => handleDeleteComment(props.comment.comment_id)}
-            >
-              <span class="material-symbols-outlined">close</span>
-            </button>
-          ) : (
-            <div></div>
-          )}
+          <span className="user-info">
+            <p className="comment-username">{props.comment.author}</p>
+            {props.comment.author === user.username ? (
+              <div id="delete">
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeleteComment(props.comment.comment_id)}
+                >
+                  <span className="material-symbols-outlined">close</span>
+                </button>
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </span>
+
           <p className="comment-body">{props.comment.body}</p>
+
           <p className="comment-created">
             {date} at {time}
           </p>

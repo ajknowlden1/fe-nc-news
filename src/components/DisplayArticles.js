@@ -48,19 +48,21 @@ const DisplayArticles = (props) => {
                   <h2 className="article__title">{article.title}</h2>
                 </Link>
                 <div className="count-wrap">
-                  <p className="vote-count">
+                  <div className="vote-count">
                     <div className="count-icon">
-                      <span class="material-symbols-outlined">thumb_up</span>
+                      <span className="material-symbols-outlined">
+                        thumb_up
+                      </span>
                     </div>
                     {article.votes}
-                  </p>
+                  </div>
                   <div className="count-wrap">
-                    <p className="comment-count">
+                    <div className="comment-count">
                       <div className="count-icon">
-                        <span class="material-symbols-outlined">chat</span>
+                        <span className="material-symbols-outlined">chat</span>
                       </div>
                       {article.comment_count}
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -24,9 +24,7 @@ export const CommentSection = (props) => {
     return (
       <div className="comments-section">
         <h3 className="comments__header">Comments</h3>
-        <div className="comment-deleted">
-          {deleted === true ? <p>Comment deleted!</p> : <></>}
-        </div>
+
         <div className="user-posted">
           <>
             {posted === true ? (
@@ -41,6 +39,9 @@ export const CommentSection = (props) => {
               />
             )}
           </>
+          <div className="comment-deleted">
+            {deleted === true ? <p>Comment deleted!</p> : <></>}
+          </div>
         </div>
 
         <div>

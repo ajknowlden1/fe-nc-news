@@ -19,7 +19,10 @@ export const fetchAllArticles = (sort, order, topic) => {
 };
 
 export const fetchSingleArticle = (id) => {
-  return newsAPI.get(`/articles/${id}`);
+  return newsAPI
+    .get(`/articles/${id}`)
+
+    .catch((response) => response);
 };
 
 export const updateVotes = (id, increment) => {
@@ -49,4 +52,10 @@ export const postComment = (id, commentToPost) => {
 
 export const deleteComment = (id) => {
   return newsAPI.delete(`/comments/${id}`);
+};
+
+export const fetchUsers = (id) => {
+  return newsAPI.get(`/users`).then((res) => {
+    return res.data;
+  });
 };
