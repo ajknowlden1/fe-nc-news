@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { fetchSingleArticle, updateVotes } from "../utils/api";
+import { useState, useEffect, useContext } from "react";
+import { deleteArticle, fetchSingleArticle, updateVotes } from "../utils/api";
 import { formatDate } from "../utils/formatDate";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import { DisplayVotes } from "./DisplayVotes";
 import { CommentSection } from "./CommentSection";
+import { UserContext } from "../contexts/Theme";
 
-const SingleArticle = () => {
+const SingleArticle = (props) => {
   let params = useParams();
   const [visible, setVisible] = useState(false);
   const [article, setArticle] = useState({});
@@ -16,6 +17,8 @@ const SingleArticle = () => {
   const [splitBody, setSplitBody] = useState([]);
   const [voted, setVoted] = useState([]);
   const [error, setError] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
@@ -36,7 +39,7 @@ const SingleArticle = () => {
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [params.article_id]);
+  }, [params.article_id, deleted]);
 
   const handleComments = () => {
     visible === false ? setVisible(true) : setVisible(false);
@@ -54,6 +57,24 @@ const SingleArticle = () => {
         alert("an error has occurred");
       });
   };
+
+  const handleDeleteArticle = (id) => {
+    setIsLoading(true);
+    setDeleted(true);
+    setIsLoading(false);
+    deleteArticle(id).then(() => {
+      return;
+    });
+  };
+
+  if (deleted) {
+    return (
+      <div className="delete-article-success">
+        <h2>Article deleted</h2>
+        <Link to={"/articles"}>Return to article list</Link>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -75,6 +96,18 @@ const SingleArticle = () => {
     <div className="single-article">
       <div className="single-article__header">
         <h2 className="article__title-underline">{article.title}</h2>
+        <div id="delete">
+          {article.author === user.username ? (
+            <button
+              className="delete-button"
+              onClick={() => handleDeleteArticle(article.article_id)}
+            >
+              <span className="material-symbols-outlined">close</span>
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
 
         <span className="article-info">
           <p className="article__author-centre">{article.author}</p>

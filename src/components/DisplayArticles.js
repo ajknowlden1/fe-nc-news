@@ -8,7 +8,7 @@ const DisplayArticles = (props) => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sort, setSort] = useState("Date created");
-  const [order, setOrder] = useState("Ascending");
+  const [order, setOrder] = useState("Descending");
   // eslint-disable-next-line
 
   useEffect(() => {

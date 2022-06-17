@@ -12,6 +12,7 @@ import { useState } from "react";
 import { UserContext } from "./contexts/Theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Users } from "./components/Users";
+import { PostArticle } from "./components/PostArticle";
 
 function App() {
   const [user, setUser] = useState({
@@ -42,6 +43,10 @@ function App() {
             <Route path="/topics/cooking" element={<Cooking />}></Route>
             <Route path="/users" element={<Users />}></Route>
             <Route path="/*" exact="true" element={<NotFound />}></Route>
+            <Route
+              path="/articles/post"
+              element={<PostArticle user={user} />}
+            ></Route>
           </Routes>
         </div>
       </UserContext.Provider>

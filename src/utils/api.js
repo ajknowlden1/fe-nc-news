@@ -40,6 +40,24 @@ export const fetchArticlesByTopic = (topic) => {
   });
 };
 
+export const postArticle = (user, title, body, topic) => {
+  return newsAPI
+    .post(`/articles`, {
+      author: user.username,
+      title: title,
+      body: body,
+      topic: topic,
+    })
+    .then((res) => {
+      console.log(res);
+      return res;
+    });
+};
+
+export const deleteArticle = (id) => {
+  return newsAPI.delete(`/articles/${id}`);
+};
+
 export const fetchArticleComments = (id) => {
   return newsAPI.get(`/articles/${id}/comments`);
 };
