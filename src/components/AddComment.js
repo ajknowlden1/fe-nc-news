@@ -59,6 +59,9 @@ export const AddComment = (props) => {
       <button disabled={commentBody.length < 1} className="submit-btn">
         Submit
       </button>
+      <p id="start-typing">
+        {!valid ? "Start typing to add a comment..." : ""}
+      </p>
     </form>
   );
 };

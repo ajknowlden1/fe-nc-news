@@ -5,11 +5,11 @@ export const DisplayVotes = (props) => {
       <div className="vote-btn-wrapper">
         {props.voted === true ? (
           <button onClick={() => props.handleVotes(-1)} className="vote-btn">
-            <span class="material-symbols-outlined">thumb_down</span>
+            <span className="material-symbols-outlined">thumb_down</span>
           </button>
         ) : (
           <button onClick={() => props.handleVotes(1)} className="vote-btn">
-            <span class="material-symbols-outlined">thumb_up</span>
+            <span className="material-symbols-outlined">thumb_up</span>
           </button>
         )}
       </div>

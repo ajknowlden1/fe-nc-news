@@ -14,7 +14,7 @@ const SingleArticle = () => {
   const [articleVotes, setArticleVotes] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [splitBody, setSplitBody] = useState([]);
-  const [voted, setVoted] = useState(false);
+  const [voted, setVoted] = useState([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {

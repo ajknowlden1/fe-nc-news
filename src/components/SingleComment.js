@@ -34,7 +34,7 @@ export const SingleComment = (props) => {
                   className="delete-button"
                   onClick={() => handleDeleteComment(props.comment.comment_id)}
                 >
-                  <span class="material-symbols-outlined">close</span>
+                  <span className="material-symbols-outlined">close</span>
                 </button>
               </div>
             ) : (
