@@ -15,17 +15,27 @@ const SingleArticle = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [splitBody, setSplitBody] = useState([]);
   const [voted, setVoted] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchSingleArticle(params.article_id).then(({ data }) => {
-      setArticleVotes(data.article.votes);
-      setArticle(data.article);
-      setSplitBody(
-        data.article.body.replace(/([.?!])\s+(?=[A-Z])/g, "$1|").split("|")
-      );
-      setIsLoading(false);
-    });
+    fetchSingleArticle(params.article_id)
+      .then((response) => {
+        if (response.status !== 200) {
+          setError(true);
+          setIsLoading(false);
+          return;
+        }
+        setArticleVotes(response.data.article.votes);
+        setArticle(response.data.article);
+        setSplitBody(
+          response.data.article.body
+            .replace(/([.?!])\s+(?=[A-Z])/g, "$1|")
+            .split("|")
+        );
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
   }, [params.article_id]);
 
   const handleComments = () => {
@@ -50,6 +60,15 @@ const SingleArticle = () => {
       <div className="loading-wrap">
         <Loading isLoading={isLoading} />
       </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <h2 className="not-found">
+        Article not found. Double check the URL and try again.
+        <Link to="/">Return to homepage</Link>
+      </h2>
     );
   }
   return (

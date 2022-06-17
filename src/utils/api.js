@@ -19,7 +19,10 @@ export const fetchAllArticles = (sort, order, topic) => {
 };
 
 export const fetchSingleArticle = (id) => {
-  return newsAPI.get(`/articles/${id}`);
+  return newsAPI
+    .get(`/articles/${id}`)
+
+    .catch((response) => response);
 };
 
 export const updateVotes = (id, increment) => {
