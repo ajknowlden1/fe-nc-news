@@ -4,7 +4,7 @@
 
 **GitHub**: "https://github.com/ajknowlden1/fe-nc-news"
 
-**Hosted on Netlify**: "https://13-deploy-app--aknowlden-nc-news.netlify.app/"
+**Hosted on Netlify**: "https://main--aknowlden-nc-news.netlify.app/"
 
 ## Links to back end repo
 
