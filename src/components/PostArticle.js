@@ -62,7 +62,11 @@ export const PostArticle = (props) => {
             id="body-input"
           ></textarea>
         </div>
-        <button type="submit" className="submit-btn">
+        <button
+          disabled={body.length === 0 || title.length === 0}
+          type="submit"
+          className="submit-btn"
+        >
           Submit
         </button>
       </form>
