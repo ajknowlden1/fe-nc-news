@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newsAPI = axios.create({
-  baseURL: "hhttps://nc-news-0jrl.onrender.com/api",
+  baseURL: "https://nc-news-0jrl.onrender.com/api",
 });
 
 export const fetchAllArticles = (sort, order, topic) => {
