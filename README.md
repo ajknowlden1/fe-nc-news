@@ -10,7 +10,7 @@
 
 **GitHub repository**: "https://github.com/ajknowlden1/NC-News-BE-Project"
 
-**Hosted version**: "https://aknowlden-nc-news.herokuapp.com/api"
+**Hosted version**: "https://nc-news-0jrl.onrender.com/api"
 
 ## About NC News
 
